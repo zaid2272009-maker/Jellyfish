@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Menu - Jellyfish Bubble Tea</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="h-full font-[Nunito] bg-white">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-24">
+            <a href="/" class="text-2xl font-bold text-purple-700">Jellyfish Bubble Tea</a>
+            <nav class="hidden lg:flex space-x-6">
+                <a href="{{ url_for('home') }}" class="px-3 py-2 hover:text-purple-500">About</a>
+                <a href="{{ url_for('home') }}" class="px-3 py-2 hover:text-purple-500">Menu</a>
+                <a href="{{ url_for('home') }}" class="px-3 py-2 hover:text-purple-500">Contact</a>
+                <a href="{{ url_for('home') }}" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">Order Online</a>
+            </nav>
+            <button class="lg:hidden" id="menu-btn">☰</button>
+        </div>
+    </header>
+
+    <!-- FULL MENU SECTION -->
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-6 text-center">Our Full Menu</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for drink in drinks %}
+            <div class="bg-gray-100 p-4 rounded shadow hover:scale-105 transform transition flex flex-col items-center">
+                <img src="{{ url_for('static', filename='images/' ~ drink['image_filename']) }}" 
+                     alt="{{ drink['name'] }}" 
+                     class="rounded-lg mb-3 w-full h-48 object-cover">
+                <h3 class="text-xl font-semibold mb-1">{{ drink['name'] }}</h3>
+                <p class="text-gray-600 text-center mb-2">{{ drink['description'] }}</p>
+                <p class="text-purple-700 font-bold">${{ drink['price'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-700 text-white py-8 text-center">
+        &copy; 2026 Jellyfish Bubble Tea. All rights reserved.
+    </footer>
+
+</body>
+</html>

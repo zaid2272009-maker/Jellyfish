@@ -1,0 +1,179 @@
+/* ===============================
+   BASE TYPOGRAPHY
+================================ */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: white;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Example hover effect */
+section div:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   VISIBLE FLOATING BUBBLES
+================================ */
+
+.bubble-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;  /* so clicks go through */
+    z-index: 9999;         /* above everything */
+    overflow: visible;
+}
+
+.bg-bubble {
+    position: absolute;
+    bottom: -80px;           /* start below screen */
+    width: 40px;
+    height: 40px;
+    background: rgba(144, 0, 255, 0.25);      /* visible color */
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: floatUp linear infinite;
+}
+
+/* spread them horizontally and random speeds */
+.bg-bubble:nth-child(1) { left: 5%; animation-duration: 6s; }
+.bg-bubble:nth-child(2) { left: 20%; animation-duration: 8s; }
+.bg-bubble:nth-child(3) { left: 40%; animation-duration: 7s; }
+.bg-bubble:nth-child(4) { left: 60%; animation-duration: 9s; }
+.bg-bubble:nth-child(5) { left: 80%; animation-duration: 10s; }
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-150vh) scale(1);
+        opacity: 0;
+    }
+}
+
+
+/* maybe i am gonna delete it
+
+
+/* BUBBLE LAYER */
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999; /* on top */
+    pointer-events: none;
+}
+
+/* BUBBLE BASE STYLE */
+.bg-bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(149, 0, 255, 0.234); /* bright color */
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+
+/* DIFFERENT SIZES, DELAYS, AND SPEEDS */
+.bg-bubble:nth-child(1) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 12s;
+    animation-delay: 0s;
+}
+
+.bg-bubble:nth-child(2) {
+    left: 25%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.bg-bubble:nth-child(3) {
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 15s;
+    animation-delay: 1s;
+}
+
+.bg-bubble:nth-child(4) {
+    left: 70%;
+    width: 35px;
+    height: 35px;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.bg-bubble:nth-child(5) {
+    left: 85%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 18s;
+    animation-delay: 0.5s;
+}
+
+/* FLOAT ANIMATION */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-130vh) scale(1);
+        opacity: 0;
+    }
+}
+
+
+/*------
+----
+for the hover 
+----
+*/
+
+/* Hover pop effect for images only */
+img:hover {
+    transform: scale(1.05); /* pop a little */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Make sure shadow follows border-radius */
+img {
+    border-radius: inherit; /* uses the image's own border-radius */
+}
+/* ===============================
+   IMAGE HOVER POP ONLY
+================================ */
+
+/* Remove any previous hover effects on divs */
+section div:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+/* Apply pop only to images */
+#menu img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure shadow follows rounded corners */
+#menu img {
+    border-radius: 0.75rem; /* match your rounded-lg */
+}

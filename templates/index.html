@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyfish Bubble Tea</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="h-full font-[Nunito] bg-white">
+
+<div class="bubble-layer">
+    <div class="bg-bubble"></div>
+    <div class="bg-bubble"></div>
+    <div class="bg-bubble"></div>
+    <div class="bg-bubble"></div>
+    <div class="bg-bubble"></div>
+</div>
+
+
+
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-24">
+            <a href="/" class="text-2xl font-bold text-purple-700">Jellyfish Bubble Tea</a>
+<nav class="hidden lg:flex items-center space-x-6">
+    <a href="#about" class="px-3 py-2 hover:text-purple-500">About</a>
+    <a href="#menu" class="px-3 py-2 hover:text-purple-500">Menu</a>
+    <a href="#contact" class="px-3 py-2 hover:text-purple-500">Contact</a>
+    <a href="#order" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">Order Online</a>
+</nav>
+
+            <button class="lg:hidden" id="menu-btn">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="max-w-7xl mx-auto px-4 py-20 lg:py-32 grid lg:grid-cols-2 gap-8 items-center bg-purple-50">
+        <div>
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6">Refreshing Bubble Tea <span class="text-purple-700">Made Fresh Daily</span></h1>
+            <p class="text-gray-600 mb-8">Experience premium bubble tea with authentic flavors, fresh ingredients, and endless customization options.</p>
+            <a href="#order" class="bg-purple-700 text-white px-6 py-3 rounded hover:bg-purple-800">Order Now</a>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='images/bubble_tea.avif') }}" alt="Bubble Tea" class="rounded-xl shadow-lg " style="width: 100%;">
+        </div>
+    </section>
+
+
+
+    <!-- Features Grid -->
+<!-- ABOUT SECTION -->
+<section id="about" class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-6 text-center">Why Choose Jellyfish Bubble Tea?</h2>
+    <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+        We're passionate about serving the highest quality drinks with exceptional service in a cozy atmosphere.
+    </p>
+
+    <!-- Features Grid with Light Purple Gradient -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div class="p-6 rounded-xl text-center bg-gradient-to-br from-purple-100 to-purple-200 shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Fresh Ingredients</h3>
+            <p class="text-gray-700 text-sm">Premium tea leaves, fresh fruits, and authentic tapioca pearls prepared daily.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-6 rounded-xl text-center bg-gradient-to-br from-purple-100 to-purple-200 shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Endless Flavors</h3>
+            <p class="text-gray-700 text-sm">From classic milk tea to exotic fruit blends—customize sugar and ice levels.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-6 rounded-xl text-center bg-gradient-to-br from-purple-100 to-purple-200 shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Cozy Atmosphere</h3>
+            <p class="text-gray-700 text-sm">Relax in our welcoming space with friends or enjoy your drink on the go.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="p-6 rounded-xl text-center bg-gradient-to-br from-purple-100 to-purple-200 shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Award-Winning Service</h3>
+            <p class="text-gray-700 text-sm">Rated 4.4/5 stars by 725+ customers who love our friendly service.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+        <div>
+            <p class="text-3xl font-bold text-purple-700">50+</p>
+            <p class="text-gray-600 text-sm">Drink Options</p>
+        </div>
+        <div>
+            <p class="text-3xl font-bold text-purple-700">725+</p>
+            <p class="text-gray-600 text-sm">Happy Customers</p>
+        </div>
+        <div>
+            <p class="text-3xl font-bold text-purple-700">4.4★</p>
+            <p class="text-gray-600 text-sm">Average Rating</p>
+        </div>
+        <div>
+            <p class="text-3xl font-bold text-purple-700">100%</p>
+            <p class="text-gray-600 text-sm">Fresh Daily</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- MENU SECTION -->
+<section id="menu" class="max-w-7xl mx-auto px-4 py-16 ">
+    <h2 class="text-3xl font-bold mb-6 text-center">Our Most Popular Drinks</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Menu Item 1 -->
+        <div class="relative bg-gray-100 p-4 rounded shadow hover:scale-105 transform transition flex flex-col items-center">
+            <!-- Badge -->
+            <div class="absolute top-4 left-4 z-10 bg-purple-700 text-white text-xs font-bold px-3 py-1 rounded-full">
+                Most Premium
+            </div>
+            <img src="{{ url_for('static', filename='images/classic.jpeg') }}" alt="Classic Milk Tea" class="rounded-lg mb-3 w-full h-48 object-cover">
+            <h3 class="text-xl font-semibold mb-1">Classic Milk Tea</h3>
+            <p class="text-gray-600 text-center mb-3">A timeless favorite made with black tea, milk, and chewy tapioca pearls.</p>
+        </div>
+
+        <!-- Menu Item 2 -->
+        <div class="relative bg-gray-100 p-4 rounded shadow hover:scale-105 transform transition flex flex-col items-center">
+            <!-- Badge -->
+            <div class="absolute top-4 left-4 z-10 bg-orange-700 text-white text-xs font-bold px-3 py-1 rounded-full">
+                Best Seller
+            </div>
+            <img src="{{ url_for('static', filename='images/taro.jpg') }}" alt="Taro Bubble Tea" class="rounded-lg mb-3 w-full h-48 object-cover">
+            <h3 class="text-xl font-semibold mb-1">Taro Bubble Tea</h3>
+            <p class="text-gray-600 text-center mb-3">Sweet, creamy taro flavor with chewy tapioca pearls.</p>
+        </div>
+
+        <!-- Menu Item 3 -->
+        <div class="relative bg-gray-100 p-4 rounded shadow hover:scale-105 transform transition flex flex-col items-center">
+            <!-- Badge -->
+            <div class="absolute top-4 left-4 z-10 bg-lime-700 text-white text-xs font-bold px-3 py-1 rounded-full">
+                Most Refreshing
+            </div>
+            <img src="{{ url_for('static', filename='images/strawberry.jpg') }}" alt="Strawberry Smoothie" class="rounded-lg mb-3 w-full h-48 object-cover">
+            <h3 class="text-xl font-semibold mb-1">Strawberry Smoothie</h3>
+            <p class="text-gray-600 text-center mb-3">Refreshing smoothie made with fresh strawberries and milk.</p>
+        </div>
+    </div>
+
+    <!-- Button to full menu -->
+    <div class="mt-8 text-center">
+        <a href="/full-menu" class="bg-purple-700 text-white px-6 py-3 rounded hover:bg-purple-800 transition">
+            View Full Menu
+        </a>
+    </div>
+</section>
+
+
+
+    <!-- ORDER SECTION -->
+<section id="order" class="max-w-7xl mx-auto px-4 py-16 bg-purple-50">
+    <h2 class="text-3xl font-bold mb-6">Order Your Bubble Tea</h2>
+
+    <form method="POST" class="space-y-4">
+        <div>
+    <label class="block font-semibold">Phone:</label>
+    <input type="tel" name="phone" pattern="^\+?\d{10,12}$" 
+           class="border rounded px-3 py-2 w-full" required
+           placeholder="+9627xxxxxxx">
+    <small class="text-gray-500">Include country code, e.g., +9627xxxxxxx</small>
+</div>
+
+        <div>
+            <label class="block font-semibold">Name:</label>
+            <input type="text" name="name" class="border rounded px-3 py-2 w-full" required>
+        </div>
+
+        <div>
+    <label class="block font-semibold">Drink:</label>
+    <select name="drink" class="border rounded px-3 py-2 w-full" required>
+        {% for drink in drinks %}
+        <option value="{{ drink.id }}">{{ drink.name }} - ${{ drink.price }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+        </div>
+
+        <div>
+            <p class="font-semibold mb-2">Select Bubbles:</p>
+            <div id="bubble-container" class="flex gap-2 flex-wrap">
+                {% for bubble in bubble_options %}
+                <div class="bubble cursor-pointer px-3 py-2 rounded-full bg-purple-200 hover:bg-purple-400 transition" data-name="{{ bubble.name }}">
+                    {{ bubble.name }}
+                </div>
+                {% endfor %}
+            </div>
+            <input type="hidden" name="bubbles" id="selected-bubbles">
+        </div>
+
+        <button type="submit" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">Place Order</button>
+    </form>
+</section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-6">Contact & Location</h2>
+        <p class="text-gray-600">Shihan Al-Oqlah St., Amman</p>
+        <p class="text-gray-600">Phone: 07 7912 0986</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-700 text-white py-8 text-center">
+        &copy; 2026 Jellyfish Bubble Tea. All rights reserved.
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const bubbles = document.querySelectorAll('.bubble');
+    const selectedInput = document.getElementById('selected-bubbles');
+
+    let selected = [];
+
+    bubbles.forEach(bubble => {
+        bubble.addEventListener('click', () => {
+            const name = bubble.dataset.name;
+            if (selected.includes(name)) {
+                selected = selected.filter(b => b !== name);
+                bubble.classList.remove('bg-purple-700', 'text-white');
+                bubble.classList.add('bg-purple-200');
+            } else {
+                selected.push(name);
+                bubble.classList.add('bg-purple-700', 'text-white');
+                bubble.classList.remove('bg-purple-200');
+            }
+            selectedInput.value = selected.join(',');
+            console.log("Selected bubbles:", selectedInput.value);
+        });
+    });
+});
+</script>
+
+</body>
+</html>

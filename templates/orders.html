@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incoming Orders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans p-8">
+
+    <h1 class="text-3xl font-bold mb-6">Incoming Orders</h1>
+
+    {% if orders %}
+    <table class="min-w-full bg-white shadow-md rounded overflow-hidden">
+        <thead class="bg-purple-700 text-white">
+            <tr>
+                <th class="py-2 px-4 text-left">#</th>
+                <th class="py-2 px-4 text-left">Customer Name</th>
+                <th class="py-2 px-4 text-left">Phone</th>         <!-- NEW -->
+                <th class="py-2 px-4 text-left">Drink</th>
+                <th class="py-2 px-4 text-left">Price</th>
+                <th class="py-2 px-4 text-left">Bubbles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr class="border-b">
+                <td class="py-2 px-4">{{ order[0] }}</td>   <!-- id -->
+                <td class="py-2 px-4">{{ order[1] }}</td>   <!-- name -->
+                <td class="py-2 px-4">{{ order[2] }}</td>   <!-- phone -->
+                <td class="py-2 px-4">{{ order[3] }}</td>   <!-- drink name -->
+                <td class="py-2 px-4">${{ order[4] }}</td> <!-- price -->
+                <td class="py-2 px-4">{{ order[5] }}</td>   <!-- bubbles -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No orders yet.</p>
+    {% endif %}
+
+</body>
+</html>
