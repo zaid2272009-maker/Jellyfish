@@ -4,6 +4,15 @@ import re  # for phone validation
 
 app = Flask(__name__)
 
+from flask import Response
+
+@app.route('/google9d022a88b9b3a116.html')
+def google_verify():
+    return Response(
+        "google-site-verification: google9d022a88b9b3a116.html",
+        mimetype="text/html"
+)
+
 # Example bubble options
 bubble_options = [
     {"name": "Tapioca"},
@@ -85,3 +94,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
