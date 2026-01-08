@@ -92,6 +92,29 @@ def home():
     return render_template('index.html', bubble_options=bubble_options, drinks=drinks)
 
 
+@app.route('/sitemap.xml')
+def sitemap():
+    pages = [
+        {'loc': 'https://jellyfish-jo1y.onrender.com/', 'priority': '1.0'},
+        {'loc': 'https://jellyfish-jo1y.onrender.com/full-menu', 'priority': '0.8'}
+    ]
+    
+    sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>',
+                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    
+    for page in pages:
+        sitemap_xml.append('<url>')
+        sitemap_xml.append(f"<loc>{page['loc']}</loc>")
+        sitemap_xml.append(f"<priority>{page['priority']}</priority>")
+        sitemap_xml.append('</url>')
+    
+    sitemap_xml.append('</urlset>')
+    
+    from flask import Response
+    return Response('\n'.join(sitemap_xml), mimetype='application/xml')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+
 
