@@ -206,7 +206,9 @@
             <input type="hidden" name="bubbles" id="selected-bubbles">
         </div>
 
-        <button type="submit" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">Place Order</button>
+               <button type="button" id="send-whatsapp" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+    Place order
+</button>
     </form>
 </section>
 
@@ -247,6 +249,32 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Selected bubbles:", selectedInput.value);
         });
     });
+});
+</script>
+
+<!--sending the order via whatsapp-->
+<script>
+document.getElementById('send-whatsapp').addEventListener('click', () => {
+    const name = document.querySelector('input[name="name"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
+    const drinkSelect = document.querySelector('select[name="drink"]');
+    const drinkText = drinkSelect.options[drinkSelect.selectedIndex].text;
+    const bubbles = document.getElementById('selected-bubbles').value;
+
+    if (!name || !phone || !drinkText) {
+        alert("Please fill in your name, phone, and select a drink.");
+        return;
+    }
+
+    const message = encodeURIComponent(
+        `New order:\nName: ${name}\nPhone: ${phone}\nDrink: ${drinkText}\nBubbles: ${bubbles}`
+    );
+
+    // Replace with your WhatsApp number including country code, e.g., 9627xxxxxxx
+    const whatsappNumber = "+962790885363";
+    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    window.open(url, '_blank'); // Opens WhatsApp Web / App
 });
 </script>
 
